@@ -16,7 +16,7 @@
         var socket = io();
 
         socket.on('connect', function(){
-            console.log('Conectado al servidor')
+            console.log('Conectado al servidor');
         });
 
         socket.on('disconnect', function(){
@@ -24,10 +24,18 @@
         });
         
        socket.emit('mensaje', {nombre: 'Fernando'});
+       
 
-       socket.on('mensaje', function(payload){
-        console.log('Escuchando:', payload)
-       })
+       socket.on('nuevo-mensaje', function(payload){
+        console.log('Escuchando:', payload);
+       });
+
+       socket.on('active-bands', function(bands){
+        console.clear();
+        console.table(bands);
+       });
+
+
 
 
     </script>
